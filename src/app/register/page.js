@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { FaUser, FaEnvelope, FaLock, FaUserGraduate } from "react-icons/fa";
 
 export default function RegisterPage() {
-  const [form, setForm] = useState({ name: "", username: "", password: "", role: "student" });
+  const [form, setForm] = useState({ name: "", username: "", password: "" });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -85,27 +85,7 @@ export default function RegisterPage() {
               </div>
             </div>
 
-            <div className="form-group" style={{ marginBottom: '2rem' }}>
-              <label>Register As</label>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
-                {[{ val: "student", label: "Student", icon: "🎓" }, { val: "contributor", label: "Contributor", icon: "📤" }].map(opt => (
-                  <button key={opt.val} type="button" onClick={() => setForm(p => ({ ...p, role: opt.val }))}
-                    style={{
-                      padding: '0.75rem', borderRadius: '10px', border: `1.5px solid ${form.role === opt.val ? 'var(--primary-light)' : 'var(--border)'}`,
-                      background: form.role === opt.val ? 'rgba(37,99,235,0.1)' : 'transparent',
-                      color: 'var(--text-main)', cursor: 'pointer', fontFamily: 'Outfit, sans-serif', fontWeight: 600, fontSize: '0.9rem',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', transition: 'all 0.2s'
-                    }}>
-                    {opt.icon} {opt.label}
-                  </button>
-                ))}
-              </div>
-              {form.role === "contributor" && (
-                <p style={{ fontSize: '0.8rem', color: 'var(--primary-light)', marginTop: '0.6rem' }}>
-                  Ready to contribute papers to the community!
-                </p>
-              )}
-            </div>
+
 
             <button type="submit" className="btn btn-primary" style={{ width: '100%', padding: '0.875rem' }} disabled={loading}>
               {loading ? <span className="spinner" /> : <><FaUserGraduate /> Create Account</>}
