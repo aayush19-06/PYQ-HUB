@@ -7,16 +7,16 @@ import { SignJWT } from "jose";
 export async function POST(request) {
   try {
     await dbConnect();
-    const { email, password } = await request.json();
+    const { username, password } = await request.json();
 
-    if (!email || !password) {
+    if (!username || !password) {
       return NextResponse.json(
-        { error: "Email and password are required" },
+        { error: "Username and password are required" },
         { status: 400 }
       );
     }
 
-    const user = await User.findOne({ email }).select("+password");
+    const user = await User.findOne({ username }).select("+password");
     if (!user) {
       return NextResponse.json(
         { error: "Invalid credentials" },
@@ -46,7 +46,7 @@ export async function POST(request) {
       user: {
         id: user._id,
         name: user.name,
-        email: user.email,
+        username: user.username,
         role: user.role,
       },
     });

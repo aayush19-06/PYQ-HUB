@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { FaEnvelope, FaLock, FaSignInAlt } from "react-icons/fa";
 
 export default function LoginPage() {
-  const [form, setForm] = useState({ email: "", password: "" });
+  const [form, setForm] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -59,16 +59,16 @@ export default function LoginPage() {
 
           <form onSubmit={handleSubmit}>
             <div className="form-group">
-              <label>Email Address</label>
+              <label>Username</label>
               <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
-                <FaEnvelope style={{ position: 'absolute', left: '1rem', color: 'var(--text-muted)' }} size={14} />
+                <span style={{ position: 'absolute', left: '1rem', color: 'var(--text-muted)' }}>@</span>
                 <input
                   className="form-control"
-                  type="email"
+                  type="text"
                   style={{ paddingLeft: '2.5rem' }}
-                  placeholder="you@ucer.ac.in"
-                  value={form.email}
-                  onChange={e => setForm(p => ({ ...p, email: e.target.value }))}
+                  placeholder="yourusername"
+                  value={form.username}
+                  onChange={e => setForm(p => ({ ...p, username: e.target.value }))}
                   required
                 />
               </div>

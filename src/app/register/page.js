@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { FaUser, FaEnvelope, FaLock, FaUserGraduate } from "react-icons/fa";
 
 export default function RegisterPage() {
-  const [form, setForm] = useState({ name: "", email: "", password: "", role: "student" });
+  const [form, setForm] = useState({ name: "", username: "", password: "", role: "student" });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -68,11 +68,11 @@ export default function RegisterPage() {
             </div>
 
             <div className="form-group">
-              <label>Email Address</label>
+              <label>Username</label>
               <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
-                <FaEnvelope style={{ position: 'absolute', left: '1rem', color: 'var(--text-muted)' }} size={13} />
-                <input className="form-control" type="email" style={{ paddingLeft: '2.5rem' }} placeholder="you@ucer.ac.in"
-                  value={form.email} onChange={e => setForm(p => ({ ...p, email: e.target.value }))} required />
+                <span style={{ position: 'absolute', left: '1rem', color: 'var(--text-muted)' }}>@</span>
+                <input className="form-control" type="text" style={{ paddingLeft: '2.5rem' }} placeholder="unique_username"
+                  value={form.username} onChange={e => setForm(p => ({ ...p, username: e.target.value }))} required />
               </div>
             </div>
 
@@ -101,10 +101,9 @@ export default function RegisterPage() {
                 ))}
               </div>
               {form.role === "contributor" && (
-                <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.6rem' }}>
-                  ⚠️ Contributor accounts need admin approval before they can upload papers.                  <Link href="/how-to-upload" style={{ color: "var(--primary-light)", textDecoration: "none", marginLeft: "0.5rem", fontWeight: 600 }}>
-                    Learn more →
-                  </Link>                </p>
+                <p style={{ fontSize: '0.8rem', color: 'var(--primary-light)', marginTop: '0.6rem' }}>
+                  Ready to contribute papers to the community!
+                </p>
               )}
             </div>
 

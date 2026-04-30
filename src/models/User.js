@@ -8,14 +8,11 @@ const UserSchema = new mongoose.Schema(
       required: [true, "Please provide a name"],
       maxlength: [60, "Name cannot be more than 60 characters"],
     },
-    email: {
+    username: {
       type: String,
-      required: [true, "Please provide an email"],
+      required: [true, "Please provide a username"],
       unique: true,
-      match: [
-        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-        "Please provide a valid email",
-      ],
+      minlength: [3, "Username should be at least 3 characters"],
     },
     password: {
       type: String,
@@ -28,15 +25,6 @@ const UserSchema = new mongoose.Schema(
       enum: ["student", "contributor", "admin"],
       default: "student",
     },
-    approved: {
-      type: Boolean,
-      default: function() {
-        return this.role !== "contributor"; // Auto-approve non-contributors
-      }
-    },
-    approvedAt: Date,
-    approvedBy: mongoose.Schema.Types.ObjectId,
-    approvalReason: String,
   },
   { timestamps: true }
 );
