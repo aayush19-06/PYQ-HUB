@@ -5,10 +5,11 @@ import { FaSearch, FaExternalLinkAlt, FaFilter, FaBookOpen, FaCalendarAlt, FaDow
 
 const BRANCHES = ["CSE", "IT", "ECE", "ME", "CE", "EE"];
 const SEMESTERS = [1, 2, 3, 4, 5, 6, 7, 8];
-const CATEGORIES = ["Mid Term", "End Term", "Assignment", "Quiz"];
+const CATEGORIES = ["Sessional 1", "Sessional 2", "End Term", "Assignment", "Quiz"];
 
 const categoryColors = {
-  "Mid Term": "badge-blue",
+  "Sessional 1": "badge-blue",
+  "Sessional 2": "badge-blue",
   "End Term": "badge-purple",
   "Assignment": "badge-green",
   "Quiz": "badge-orange",

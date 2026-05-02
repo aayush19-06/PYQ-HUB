@@ -95,7 +95,7 @@ export default function NavAuth() {
 
   return (
     <Link href="/login" className="btn btn-primary" style={{ padding: '0.5rem 1.25rem' }}>
-      <FaSignInAlt /> Login
+      <FaSignInAlt /> Admin Login
     </Link>
   );
 }

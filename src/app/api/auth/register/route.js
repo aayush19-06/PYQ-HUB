@@ -31,10 +31,20 @@ export async function POST(request) {
       .setExpirationTime("7d")
       .sign(secret);
 
-    return NextResponse.json({
+    const response = NextResponse.json({
       token,
       user: { id: user._id, name: user.name, username: user.username, role: user.role },
     }, { status: 201 });
+
+    response.cookies.set("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      maxAge: 60 * 60 * 24 * 7,
+      path: "/",
+    });
+
+    return response;
   } catch (error) {
     return NextResponse.json({ error: "Server error: " + error.message }, { status: 500 });
   }

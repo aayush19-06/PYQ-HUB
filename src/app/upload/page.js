@@ -202,7 +202,8 @@ export default function UploadPage() {
                 <select className="form-control" required value={form.category}
                   onChange={(e) => setForm({ ...form, category: e.target.value })}>
                   <option value="">Select</option>
-                  <option value="Mid Term">Mid Term</option>
+                  <option value="Sessional 1">Sessional 1</option>
+                  <option value="Sessional 2">Sessional 2</option>
                   <option value="End Term">End Term</option>
                   <option value="Assignment">Assignment</option>
                   <option value="Quiz">Quiz</option>

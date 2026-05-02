@@ -35,7 +35,7 @@ export default function LoginPage() {
 
       localStorage.setItem("ucer_token", data.token);
       localStorage.setItem("ucer_user", JSON.stringify(data.user));
-      router.push("/papers");
+      window.location.href = "/papers";
     } catch (err) {
       console.error("Login error:", err);
       setError(err?.message || "Something went wrong. Please try again.");
@@ -49,9 +49,9 @@ export default function LoginPage() {
       <div style={{ width: '100%', maxWidth: '440px' }}>
         <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
           <h1 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '0.5rem' }}>
-            Welcome <span className="text-gradient">Back</span>
+            Admin <span className="text-gradient">Login</span>
           </h1>
-          <p style={{ color: 'var(--text-muted)' }}>Log in to your UCER PYQ account</p>
+          <p style={{ color: 'var(--text-muted)' }}>Log in to upload papers</p>
         </div>
 
         <div className="glass" style={{ padding: '2.5rem' }}>
@@ -95,10 +95,6 @@ export default function LoginPage() {
             </button>
           </form>
 
-          <p style={{ textAlign: 'center', marginTop: '1.5rem', color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-            Don&apos;t have an account?{" "}
-            <Link href="/register" style={{ color: 'var(--primary-light)', fontWeight: 600 }}>Register</Link>
-          </p>
         </div>
       </div>
     </main>

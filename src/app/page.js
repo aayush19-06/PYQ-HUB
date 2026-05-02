@@ -13,7 +13,8 @@ export default function Home() {
 
   const categories = [
     { name: "Class Test", color: "badge-blue", desc: "Unit-wise class tests" },
-    { name: "Sessional", color: "badge-purple", desc: "Mid-term sessional papers" },
+    { name: "Sessional 1", color: "badge-purple", desc: "First Sessional papers" },
+    { name: "Sessional 2", color: "badge-purple", desc: "Second Sessional papers" },
     { name: "Semester", color: "badge-green", desc: "End-semester exams" },
   ];
 
